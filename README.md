@@ -45,6 +45,7 @@ python main.py --dataset cora --module --nu 0.2 --lr 0.002 --n-hidden 32 --n-lay
 ```
 
 ### Requirements:
+```bash
 pytorch>=1.4
 DGL>=0.4.2
 sklearn>=0.20.1
@@ -54,7 +55,7 @@ Pyod>=0.7.6
 tensorflow>=1.4.0,<=1.12.0
 gensim==3.6.0
 DGL>=0.4.2
-
+```
 
 
 ### Cite
