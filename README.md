@@ -1,28 +1,75 @@
-# Deep Dual Support Vector Data Description for Anomaly Detection on Attributed Networks
+Source code of paper "[Deep Dual Support Vector Data Description for Anomaly Detection on Attributed Networks](https://doi.org/10.1002/int.22683)".
+ 
+
+### Run Model Training and Evaluation
+
+**Dual-SVDAE**:
+e.g.:
+```bash
+python main.py --dataset cora --module SVDAE --nu1 0.2 --nu2 0.2 --beta 0.4 --lr 0.001 --n-hidden 32 --n-layers 2 --weight-decay 0.0005 --n-epochs 5000 
+```
+
+**OC-SVM(Raw)**:
+e.g.:
+```bash
+python main.py --dataset cora --module OCSVM --mode A 
+```
 
 
-**Abstract:** Networks are ubiquitous in the real world such as social networks and communication networks, and anomaly detection on networks aims at finding nodes whose structural or attributed patterns deviate significantly from the majority of reference nodes. However, most of the traditional anomaly detection methods neglect the relation structure information among data points and therefore cannot effectively generalize to the graph structure data. In this paper, we propose an end-to-end model of Deep Dual Support Vector Data description based Autoencoder (Dual-SVDAE) for anomaly detection on attributed networks, which considers both the structure and attribute for attributed networks. Specifically, Dual-SVDAE consists of a structure autoencoder and an attribute autoencoder to learn the latent representation of the node in the structure space and attribute space respectively. Then, a dual-hypersphere learning mechanism is imposed on them to learn two hyperspheres of normal nodes from the structure and attribute perspectives respectively. Moreover, to achieve joint learning between the structure and attribute of the network, we fuse the structure embedding and attribute embedding as the final input of the feature decoder to generate the node attribute. Finally, abnormal nodes can be detected by measuring the distance of nodes to the learned center of each hypersphere in the latent structure space and attribute space respectively. Extensive experiments on the real-world attributed networks show that Dual-SVDAE consistently outperforms the state-of-the-arts, which demonstrates the effectiveness of the proposed method.
+**OC-SVM (DW)**:
+e.g.:
+```bash
+python main.py --dataset cora --module OCSVM --mode X 
+```
 
-![Dual-SVDAE](img/method.jpg)
+**Deep-SVDD (Attr)**:
+e.g.:
+```bash
+python main.py --dataset cora --module SVDD_Attr --nu 0.2 --lr 0.002 --n-hidden 32 --n-layers 2 --weight-decay 0.0005 --n-epochs 2000 
+```
 
+**Deep-SVDD (Stru)**:
+```bash
+python main.py --dataset cora --module SVDD_Stru --nu 0.2 --lr 0.002 --n-hidden 32 --n-layers 2 --weight-decay 0.0005 --n-epochs 2000 
+```
 
-## Code and data will be released soon!
+**GAE**:
+```bash
+python main.py --dataset cora --module GAE -lr 0.002 --n-hidden 32 --n-layers 2  --n-epochs 2000 
+```
 
-## Requirements
+**Dominant**:
+```bash
+python main.py --dataset cora --module Dominant -lr 0.002 --n-hidden 32 --n-layers 2 --n-epochs 2000 
+```
 
-* Python 3.6
-* Torch version 1.4
+**OC-GNN**:
+```bash
+python main.py --dataset cora --module --nu 0.2 --lr 0.002 --n-hidden 32 --n-layers 2 ---n-epochs 2000 
+```
+
+### Requirements:
+pytorch>=1.4
+DGL>=0.4.2
+sklearn>=0.20.1
+numpy>=1.16
+networkx>=2.1
+Pyod>=0.7.6
+tensorflow>=1.4.0,<=1.12.0
+gensim==3.6.0
+DGL>=0.4.2
+
 
 
 ### Cite
 If you make use of this code in your own work, please cite our paper.
 ```
-@article{zhang2021deepdual,
-  title={Deep Dual Support Vector Data Description for Anomaly Detection on Attributed Networks},
-  author={Zhang, Fengbin and Fan, Haoyi and Wang, Ruidong and Li, Zuoyong and Liang, Tiancai
-},
-  booktitle={International Journal of Intelligent Systems},
+@article{zhang2021deep,
+  title={Deep dual support vector data description for anomaly detection on attributed networks},
+  author={Zhang, Fengbin and Fan, Haoyi and Wang, Ruidong and Li, Zuoyong and Liang, Tiancai},
+  journal={International Journal of Intelligent Systems},
   year={2021},
-  publisher={Wiley}
+  doi={https://doi.org/10.1002/int.22683},
+  publisher={Wiley Online Library}
 }
 ```
