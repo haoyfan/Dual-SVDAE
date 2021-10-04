@@ -4,26 +4,22 @@ Source code of paper "[Deep Dual Support Vector Data Description for Anomaly Det
 ### Run Model Training and Evaluation
 
 **Dual-SVDAE**:
-e.g.:
 ```bash
 python main.py --dataset cora --module SVDAE --nu1 0.2 --nu2 0.2 --beta 0.4 --lr 0.001 --n-hidden 32 --n-layers 2 --weight-decay 0.0005 --n-epochs 5000 
 ```
 
 **OC-SVM(Raw)**:
-e.g.:
 ```bash
 python main.py --dataset cora --module OCSVM --mode A 
 ```
 
 
 **OC-SVM (DW)**:
-e.g.:
 ```bash
 python main.py --dataset cora --module OCSVM --mode X 
 ```
 
 **Deep-SVDD (Attr)**:
-e.g.:
 ```bash
 python main.py --dataset cora --module SVDD_Attr --nu 0.2 --lr 0.002 --n-hidden 32 --n-layers 2 --weight-decay 0.0005 --n-epochs 2000 
 ```
